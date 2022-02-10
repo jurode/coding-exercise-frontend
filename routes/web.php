@@ -11,6 +11,7 @@
 |
 */
 
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\JobController;
 
 Route::get('/', 'JobController@index');
@@ -19,3 +20,6 @@ Route::get('/jobs', fn () => view('new_job'));
 Route::get('/companies', 'CompanyController@index');
 
 Route::post('/jobs', [JobController::class, 'store']);
+Route::post('/companies', [CompanyController::class, 'store']);
+
+Route::get('/showjobs', [JobController::class, 'getJobs']);

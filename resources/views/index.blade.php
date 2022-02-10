@@ -1,6 +1,7 @@
 @extends('layout.default')
 
 @section('content')
-    <Home :jobs="@json($jobs)" />
+    <Home />
 @stop
+
 

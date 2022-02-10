@@ -15,6 +15,7 @@ class JobController extends Controller
 {
     public function index(): Factory|View|Application
     {
+        // FIXME: hier schon Abfrage nach < 7 Tage
         return view('index', ['jobs' => Job::all()->toArray()]);
     }
 
@@ -31,5 +32,10 @@ class JobController extends Controller
         $job = $company->jobs()->create($request->only('title', 'description', 'location'));
 
         return response()->json($job, Response::HTTP_CREATED);
+    }
+
+    public function getJobs()
+    {
+        return response()->json(['jobs' => Job::all()]);
     }
 }
